@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <RootNamespace>TextViewControl</RootNamespace>
+    <UseWinUI>true</UseWinUI>
+    <WinUISDKReferences>false</WinUISDKReferences>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <Nullable>enable</Nullable>
+    <!-- The library is AnyCPU, the app that uses the package picks the native Win2D dll for its platform -->
+    <Win2DWarnNoPlatform>false</Win2DWarnNoPlatform>
+    <!-- Usable in apps published with Native AOT, the trim and AOT analyzers check this while building -->
+    <IsAotCompatible>true</IsAotCompatible>
+  </PropertyGroup>
+
+  <!-- NuGet package -->
+  <PropertyGroup>
+    <PackageId>TextViewControl</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Manuel Steinhilber</Authors>
+    <Copyright>Copyright (c) 2026 Manuel Steinhilber</Copyright>
+    <Description>Fast read-only text viewer control for WinUI 3 (Win2D) for very large log files: millions of lines, word wrap, regex syntax highlighting, color filter, live appending with scrollback buffer, search.</Description>
+    <PackageTags>WinUI;WinUI3;Win2D;TextViewer;LogViewer;Log;Control;WindowsAppSDK</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>
+      https://github.com/ManuStone/TextViewControl</PackageProjectUrl>
+    <RepositoryUrl>
+      https://github.com/ManuStone/TextViewControl</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Graphics.Win2D" Version="1.4.0" />
+    <!-- Only needed to build, not a dependency of the package -->
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2705" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.5.1" />
+  </ItemGroup>
+</Project>

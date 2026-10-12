@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TextViewControlApp (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "TextViewControlApp (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

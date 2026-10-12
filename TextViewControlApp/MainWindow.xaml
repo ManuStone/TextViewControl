@@ -1,0 +1,72 @@
+<Window
+    x:Class="TextViewControlApp.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TextViewControl"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"    
+    Title="TextViewControl - Example">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+
+    <Grid RowDefinitions="auto,*" KeyboardAcceleratorPlacementMode="Hidden">
+
+		<!-- Ctrl+F anywhere in the window: open the search row -->
+		<Grid.KeyboardAccelerators>
+			<KeyboardAccelerator Key="F" Modifiers="Control" Invoked="SearchAccelerator_Invoked"/>
+		</Grid.KeyboardAccelerators>
+
+        <ScrollViewer Grid.Row="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+
+			<StackPanel Orientation="Vertical" Spacing="12" Margin="12">
+
+				<StackPanel Orientation="Horizontal" Spacing="12">
+					<Button Content="Clear" Click="Clear_Click"/>
+                    <Button Content="LoadFile" Click="LoadFile_Click"/>
+                    <Button Content="LoadLines" Click="LoadLines_Click"/>
+                    <Button Content="AddLine" Click="AddLine_Click"/>
+                    <Button Content="ZoomIn" Click="ZoomIn_Click"/>
+                    <Button Content="ZoomOut" Click="ZoomOut_Click"/>
+                    <Button Content="MaxLines" Click="MaxLines_Click"/>
+
+					<Border BorderBrush="Gray" BorderThickness="1" CornerRadius="4" Padding="4">
+					    <TextBlock x:Name="LinesText" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Lines 0 / 0"/>
+					</Border>
+
+					<Border x:Name="MatchesBorder" BorderBrush="Gray" BorderThickness="1" CornerRadius="4" Padding="4" Visibility="Collapsed">
+					    <TextBlock x:Name="MatchesText" VerticalAlignment="Center"/>
+					</Border>
+
+				</StackPanel>
+
+				<StackPanel Orientation="Horizontal" Spacing="12">
+					<CheckBox MinWidth="0" x:Name="DarkModeCheckBox" Content="Dark Mode" Click="DarkMode_Click"/>
+				    <CheckBox MinWidth="0" x:Name="LineNumbersCheckBox" Content="Line Numbers" IsChecked="{x:Bind MyTextControl.ShowLineNumbers, Mode=TwoWay}"/>                      
+                    <CheckBox MinWidth="0" x:Name="ShowHighlightCheckBox" Content="Show Highlight" IsChecked="{x:Bind MyTextControl.HighlightsEnabled, Mode=TwoWay}"/>                      
+                    <CheckBox MinWidth="0" x:Name="FilterHighlightsCheckBox" Content="Filter Highlights" IsChecked="{x:Bind MyTextControl.FilterHighlights, Mode=TwoWay}"/>                      
+                    <CheckBox MinWidth="0" x:Name="TextWrapCheckBox" Content="Text Wrap" IsChecked="{x:Bind MyTextControl.TextWrapEnabled, Mode=TwoWay}"/>
+					<CheckBox MinWidth="0" x:Name="MonitoringCheckBox" Content="Monitoring" IsChecked="{x:Bind MyTextControl.Monitoring, Mode=TwoWay}" Click="Monitoring_Click"/>
+					<CheckBox MinWidth="0" x:Name="SearchCheckBox" Content="Search" Click="Search_Click"/>
+				</StackPanel>
+
+				<StackPanel x:Name="SearchPanel" Orientation="Horizontal" Spacing="12" Visibility="Collapsed">
+					<TextBox x:Name="SearchTextBox" Width="250" PlaceholderText="Search text" KeyDown="SearchTextBox_KeyDown" TextChanged="SearchTextBox_TextChanged"/>
+					<CheckBox MinWidth="0" x:Name="WholeWordCheckBox" Content="Whole Word" Click="SearchOptions_Click"/>
+					<CheckBox MinWidth="0" x:Name="MatchCaseCheckBox" Content="Match Case" Click="SearchOptions_Click"/>
+					<CheckBox MinWidth="0" x:Name="WrapAroundCheckBox" Content="Wrap Around" IsChecked="{x:Bind MyTextControl.SearchWrapAround, Mode=TwoWay}"/>
+					<Button x:Name="SearchPreviousButton" Content="Previous" Click="SearchPrevious_Click"/>
+					<Button x:Name="SearchNextButton" Content="Next" Click="SearchNext_Click"/>
+					<Button x:Name="SearchStopButton" Content="Stop" Click="SearchStop_Click"/>
+				</StackPanel>
+
+            </StackPanel>
+
+        </ScrollViewer>
+
+        <local:TextControl Grid.Row="1" x:Name="MyTextControl" />
+            
+    </Grid>
+</Window>

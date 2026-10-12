@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="TextViewControl/TextViewControl.csproj" />
+  <Project Path="TextViewControlApp/TextViewControlApp.csproj" Id="821a32c4-ec5a-4f2c-8666-25b0efbaef59">
+    <Platform Project="x64" />
+    <Deploy />
+  </Project>
+</Solution>
