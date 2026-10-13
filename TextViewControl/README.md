@@ -15,7 +15,7 @@ A fast, read-only text viewer control for **WinUI 3**, drawn with **Win2D**, bui
 
 ## Requirements
 
-- Windows App SDK 2.5 or later, Win2D 1.4, .NET 8 or later, Windows 10 1809 (17763) or later
+- Windows App SDK 1.8 or later, Win2D 1.4, .NET 8 or later, Windows 10 1809 (17763) or later
 - The app must be built for a platform (x64, x86 or ARM64), not AnyCPU, so that the native Win2D library is found
 
 ## Usage
@@ -68,7 +68,7 @@ LogView.FindNext();
 
 ## Credits
 
-Based on ideas from [TextControlBox-WinUI](https://github.com/FrozenAssassine/TextControlBox-WinUI) and [Win2D_TextRendering](https://github.com/FrozenAssassine/Win2D_TextRendering) by FrozenAssassine.
+Based on ideas from [TextControlBox.WinUI.JuliusKirsch](https://www.nuget.org/packages/TextControlBox.WinUI.JuliusKirsch).
 
 ## License
 

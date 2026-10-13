@@ -16,9 +16,8 @@
   <!-- NuGet package -->
   <PropertyGroup>
     <PackageId>TextViewControl</PackageId>
-    <Version>1.0.0</Version>
-    <Authors>Manuel Steinhilber</Authors>
-    <Copyright>Copyright (c) 2026 Manuel Steinhilber</Copyright>
+    <Version>1.0.1</Version>
+    <Authors>ManuStone</Authors>
     <Description>Fast read-only text viewer control for WinUI 3 (Win2D) for very large log files: millions of lines, word wrap, regex syntax highlighting, color filter, live appending with scrollback buffer, search.</Description>
     <PackageTags>WinUI;WinUI3;Win2D;TextViewer;LogViewer;Log;Control;WindowsAppSDK</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -28,6 +27,7 @@
     <RepositoryUrl>
       https://github.com/ManuStone/TextViewControl</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Requires Windows App SDK 1.8 or later instead of 2.5.1.</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\" />
@@ -36,6 +36,7 @@
     <PackageReference Include="Microsoft.Graphics.Win2D" Version="1.4.0" />
     <!-- Only needed to build, not a dependency of the package -->
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2705" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.5.1" />
+    <!-- Lowest version that works (Win2D 1.4 needs WinUI 1.8): apps can use any newer version -->
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260209005" />
   </ItemGroup>
 </Project>
